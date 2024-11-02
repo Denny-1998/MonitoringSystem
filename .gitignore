@@ -1,0 +1,95 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.ide
+
+# Build folders
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio Code settings
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# DotNet Core
+project.lock.json
+project.fragment.lock.json
+*.nupkg
+*.snupkg
+
+# Node.js (if applicable)
+node_modules/
+
+# Dependency directories
+packages/
+bower_components/
+
+# Configuration files
+appsettings.Development.json
+appsettings.json
+appsettings.*.json
+appsettings.*.json5
+
+# Local History for Visual Studio
+.localhistory/
+
+# User-specific files
+*.dbmdl
+*.dbproj.schemaview
+*.dbproj.user
+*.jfm
+*.pdb
+*.cache
+*.obj
+*.ilk
+*.sdf
+*.suo
+*.sln.ide
+*.userprefs
+*.vspscc
+*.vssscc
+
+# Other files
+*.DS_Store
+*.vscode/*
+*.sln.cache
+*.tmp
+*.tmp/
+
+# Visual Studio Test Results
+TestResults/
+
+# Azure DevOps
+*.tfignore
+*.tfs/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+*.symbols.nupkg
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# C# files
+*.pdb
+*.mdb
+*.exe
+*.dll
+*.app
+*.appx
+*.appxbundle
+
+# macOS Finder
+.DS_Store
+
+# Windows Thumbnail Cache
+Thumbs.db
