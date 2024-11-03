@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  loggingservice:
+    image: ${DOCKER_REGISTRY-}loggingservice
+    build:
+      context: . 
+      dockerfile: LoggingService/Dockerfile
+    ports:
+      - "8080:80"  
+    depends_on:
+      - rabbitmq
+      - sqlserver
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"  # RabbitMQ default port
+      - "15672:15672"  # RabbitMQ Management UI
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password.1234 # this is just for conception, the password would be stored securely in an actual project
+    ports:
+      - "1434:1433" 
