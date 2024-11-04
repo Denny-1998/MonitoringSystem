@@ -20,8 +20,7 @@ namespace LoggingService.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                // Use the connection string from appsettings.json
-                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("LoggingDatabase"));
+                optionsBuilder.UseInMemoryDatabase("LoggingDatabase");
             }
         }
     }
