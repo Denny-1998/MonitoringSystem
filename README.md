@@ -8,11 +8,12 @@ The actual implementation consists of only the Logging Service with the RabbitMQ
 ![C4 lvl 1 (1)](https://github.com/user-attachments/assets/466e8775-691d-422a-a8ae-270a72ab9ab6)
 
 ## level 2
-![C4 lvl 2 (1)](https://github.com/user-attachments/assets/ca163b36-01e1-4681-88ce-2c1b64e0c3a0)
+![C4 lvl 2 (2)](https://github.com/user-attachments/assets/6148a96c-f193-47cc-9618-05d4b8e48bbc)
 
 ## level 3
+![C4 lvl 3 LoggingService (1)](https://github.com/user-attachments/assets/595c7560-4244-42e7-9118-ef04c8f6adde)
+
 ### Logging service
-![C4 lvl 3 LoggingService](https://github.com/user-attachments/assets/9e2803ab-dcd4-46aa-a843-345d648044b9)
 
 # Test
 When running the containers, RabbitMQ can be reached through: `http://localhost:15672/`
