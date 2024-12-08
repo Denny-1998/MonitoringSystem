@@ -8,6 +8,12 @@ pipeline {
     }
 
     stages {
+        stage('troubleshooting')
+        {
+            steps{
+                sh 'dotnet test'
+            }
+        }
         stage('Restore Packages') {
             steps {
                 echo 'Restoring...'
