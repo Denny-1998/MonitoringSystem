@@ -11,7 +11,8 @@ pipeline {
         stage('troubleshooting')
         {
             steps{
-                sh 'dotnet test'
+                echo 'Running test as troubleshooting'
+                sh '/var/jenkins_home/.dotnet/dotnet test'
             }
         }
         stage('Restore Packages') {
