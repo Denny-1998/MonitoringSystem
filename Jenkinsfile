@@ -20,14 +20,14 @@ pipeline {
         stage('Restore Packages') {
             steps {
                 echo 'Restoring...'
-                sh '/var/jenkins_home/.dotnet/dotnet restore ./LoggingService.sln'
+                sh '/var/jenkins_home/.dotnet/dotnet restore ./MonitoringSystem/MonitoringSystem.sln'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh '/var/jenkins_home/.dotnet/dotnet build ./LoggingService.sln --configuration Release'
+                sh '/var/jenkins_home/.dotnet/dotnet build ./MonitoringSystem/MonitoringSystem.sln --configuration Release'
             }
         }
         stage('Test')
