@@ -13,14 +13,14 @@ pipeline {
         stage('Restore Packages') {
             steps {
                 echo 'Restoring...'
-                sh '/var/jenkins_home/.dotnet/dotnet restore'
+                sh '/var/jenkins_home/.dotnet/dotnet restore ./LoggingService.sln'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh '/var/jenkins_home/.dotnet/dotnet build --configuration Release'
+                sh '/var/jenkins_home/.dotnet/dotnet build ./LoggingService.sln --configuration Release'
             }
         }
         stage('Test')
