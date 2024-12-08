@@ -9,6 +9,13 @@ pipeline {
     }
 
     stages {
+        stage('Debug') {
+            steps {
+                echo 'Listing directory contents...'
+                sh 'ls -la'
+                sh 'pwd'  
+            }
+        }
         
         stage('Restore Packages') {
             steps {
