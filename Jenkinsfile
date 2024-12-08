@@ -1,33 +1,30 @@
 pipeline {
-    agent {
-        docker {
-            image 'mcr.microsoft.com/dotnet/sdk:8.0'
-        }
-    }
+    agent any
 
     environment {
         DOCKER_IMAGE = 'logging-service'
         DOCKER_TAG = "${env.BUILD_NUMBER}"
+        DOTNET_CLI = '/usr/local/dotnet/dotnet'  // Adjust this path based on where .NET is installed
     }
 
     stages {
         stage('Restore Packages') {
             steps {
                 echo 'Restoring...'
-                sh 'dotnet restore'
+                sh '${DOTNET_CLI} restore'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'dotnet build --configuration Release --no-restore'
+                sh '${DOTNET_CLI} build --configuration Release --no-restore'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                sh 'dotnet test --no-restore --verbosity normal'
+                sh '${DOTNET_CLI} test --no-restore --verbosity normal'
             }
         }
         stage('Docker Build') {
