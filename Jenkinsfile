@@ -1,22 +1,36 @@
 pipeline {
     agent any
     stages {
+        stage('Restore Packages') {
+            steps {
+                echo 'Restoring...'
+                sh 'dotnet restore'
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building...'
-                // build steps
+                sh 'dotnet build --configuration Release --no-restore'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                // tests
+                sh 'dotnet test --no-restore --verbosity normal'
+            }
+        }
+        stage('Docker Build') {
+            steps {
+                sh "docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                sh "docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest"
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                //TODO add deployment
+                sh 'docker-compose down || true'
+                sh 'docker-compose up -d'
             }
         }
     }
