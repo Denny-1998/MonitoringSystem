@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = '1'
         DOCKER_IMAGE = 'logging-service'
         DOCKER_TAG = "${env.BUILD_NUMBER}"
         DOTNET_CLI = '/usr/local/dotnet/dotnet'  // Adjust this path based on where .NET is installed
