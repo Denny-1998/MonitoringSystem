@@ -9,31 +9,26 @@ pipeline {
     }
 
     stages {
-        stage('troubleshooting')
-        {
-            steps{
-                echo 'Running test as troubleshooting'
-                sh 'ls -la'  // List directory contents
-                sh '/var/jenkins_home/.dotnet/dotnet test ./LoggingServiceTest/LoggingServiceTest.csproj'
-            }
-        }
+        
         stage('Restore Packages') {
             steps {
                 echo 'Restoring...'
-                sh '${DOTNET_CLI} restore'
+                sh '/var/jenkins_home/.dotnet/dotnet restore'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh '${DOTNET_CLI} build --configuration Release --no-restore'
+                sh '/var/jenkins_home/.dotnet/dotnet build --configuration Release'
             }
         }
-        stage('Test') {
-            steps {
+        stage('Test')
+        {
+            steps{
                 echo 'Testing...'
-                sh '${DOTNET_CLI} test --no-restore --verbosity normal'
+                sh 'ls -la'  // List directory contents
+                sh '/var/jenkins_home/.dotnet/dotnet test ./LoggingServiceTest/LoggingServiceTest.csproj'
             }
         }
         stage('Docker Build') {
