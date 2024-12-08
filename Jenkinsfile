@@ -13,7 +13,8 @@ pipeline {
         {
             steps{
                 echo 'Running test as troubleshooting'
-                sh '/var/jenkins_home/.dotnet/dotnet test'
+                sh 'ls -la'  // List directory contents
+                sh '/var/jenkins_home/.dotnet/dotnet test ./LoggingServiceTest/LoggingServiceTest.csproj'
             }
         }
         stage('Restore Packages') {
