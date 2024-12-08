@@ -1,5 +1,11 @@
 pipeline {
     agent any
+
+    environment {
+        DOCKER_IMAGE = 'logging-service'
+        DOCKER_TAG = "${env.BUILD_NUMBER}"
+    }
+
     stages {
         stage('Restore Packages') {
             steps {
